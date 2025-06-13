@@ -45,6 +45,34 @@
 local lush = require('lush')
 local hsl = lush.hsl
 
+local raven = {
+  dark = {
+    bg = hsl(268, 45, 7),
+    fg = hsl(268, 45, 60),
+    panel = {
+      bg = hsl(280, 45, 0),
+      fg = hsl(280, 100, 30),
+    },
+    lens = {
+      bg = hsl(86, 60, 12),
+      fg = hsl(86, 80, 50),
+    }
+  }
+}
+
+-- Available text styling attributes in Lush:
+-- You can combine any of these attributes together in a single highlight group definition.
+-- •  bold = true
+-- •  italic = true 
+-- •  underline = true
+-- •  strikethrough = true
+-- •  reverse = true (swaps fg/bg)
+-- •  standout = true
+-- •  undercurl = true (curly underline)
+-- •  underdouble = true (double underline)
+-- •  underdotted = true (dotted underline)
+-- •  underdashed = true (dashed underline)
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
