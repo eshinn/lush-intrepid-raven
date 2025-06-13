@@ -96,7 +96,7 @@ local theme = lush(function(injected_functions)
     -- lCursor        { }, -- Character under the cursor when |language-mapping| is used (see 'guicursor')
     -- CursorIM       { }, -- Like Cursor, but used when in IME mode |CursorIM|
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
-    -- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+    CursorLine     { bg = raven.dark.bg.li(4).sa(10) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     -- Directory      { }, -- Directory names (and other special names in listings)
     -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
     -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
@@ -124,7 +124,7 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg        { }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    -- Normal         { }, -- Normal text
+    Normal         { bg = raven.dark.bg, fg = raven.dark.fg },
     -- NormalFloat    { }, -- Normal text in floating windows.
     -- FloatBorder    { }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows.
@@ -168,7 +168,7 @@ local theme = lush(function(injected_functions)
     --
     -- Uncomment and edit if you want more specific syntax highlighting.
 
-    -- Comment        { }, -- Any comment
+    Comment        { fg = raven.dark.fg },
 
     -- Constant       { }, -- (*) Any constant
     -- String         { }, --   A string constant: "this is a string"
@@ -217,7 +217,7 @@ local theme = lush(function(injected_functions)
 
     -- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- LspReferenceText            { } , -- Used for highlighting "text" references
+    LspReferenceText            { bg = raven.dark.lens.bg, fg = raven.dark.lens.fg } , -- Used for highlighting "text" references
     -- LspReferenceRead            { } , -- Used for highlighting "read" references
     -- LspReferenceWrite           { } , -- Used for highlighting "write" references
     -- LspCodeLens                 { } , -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
