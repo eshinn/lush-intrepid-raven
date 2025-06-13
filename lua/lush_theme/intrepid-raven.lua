@@ -286,6 +286,17 @@ local theme = lush(function(injected_functions)
     -- sym"@preproc"           { }, -- PreProc
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
+
+    -- SnacksIndentScope {},
+    -- SnacksIndent      {},
+    -- SnacksIndent1     {},
+    -- SnacksIndent2     {},
+    -- SnacksIndent3     {},
+    -- SnacksIndent4     {},
+    -- SnacksIndent5     {},
+    -- SnacksIndent6     {},
+    -- SnacksIndent7     {},
+    -- SnacksIndent8     {},
 }
 end)
 
