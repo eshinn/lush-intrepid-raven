@@ -50,8 +50,12 @@ local raven = {
     bg = hsl(268, 45, 7),
     fg = hsl(268, 45, 60),
     panel = {
-      bg = hsl(280, 45, 0),
+      bg = hsl(280, 45, 3),
       fg = hsl(280, 100, 30),
+      select = {
+        bg = hsl(280, 70, 10),
+        fg = hsl(280, 45, 30),
+      }
     },
     lens = {
       bg = hsl(86, 60, 12),
@@ -89,6 +93,36 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
+		SnacksDashboardNormal { bg = raven.dark.bg, fg = "red" },
+		SnacksDashboardFooter { fg = raven.dark.lens.fg },
+    SnacksDashboardHeader { bg = hsl(274, 74, 7),fg = hsl(274, 100, 22) },
+    SnacksDashboardIcon { fg = raven.dark.lens.fg },
+    SnacksDashboardSpecial { fg = hsl(32, 100, 65), bold = true },
+    SnacksDashboardKey { fg = raven.dark.lens.fg },
+    SnacksDashboardDir { bg = "red" },
+    NoiceConfirm {bg = "red"},
+    NoiceCmdlinePopupTitleInput { bg = "red"},
+    NoiceCmdlineIconCalculator { bg = "red" },
+    NoiceConfirmBorder {bg = "blue", fg = "black"},
+    NoiceCmdlinePopupTitleHelp { bg = "blue", fg = "pink"},
+    NoiceCmdlinePopupBorderFilter { bg = "blue", fg = "pink"},
+    NoiceCmdlinePopupTitleFilter {bg = "blue", fg = "pink"},
+    NoiceVirtualText {bg = "blue", fg = "pink"},
+    NoiceCmdlineIconSearch {bg = "blue", fg = "pink"},
+    NoiceCursor {bg = "blue", fg = "pink"},
+    NoiceCmdline {bg = "blue", fg = "pink"},
+    NoiceLspProgressTitle {bg = "blue", fg = "pink"},
+    BlinkCmpMenuSelection {bg = "blue", fg = "pink"},
+    -- NoiceCmdlinePopupBorder {bg = hsl(270, 60, 10), fg = hsl(270, 75, 34)},
+    NoiceCmdlinePopupBorder {bg = hsl(100, 90, 1), fg = hsl(82, 90, 35)},
+    NoiceCmdlineIconCmdline {bg = hsl(100, 90, 5), fg = hsl(100, 80, 38)},
+    -- NoiceCmdlinePopup {bg = hsl(268, 60, 8), fg = "orange"},
+    NoiceCmdlinePopup {bg = hsl(100, 90, 5), fg = hsl(100, 80, 38)},
+    NoiceSplit {bg = hsl(280, 80, 10)},
+    -- BlinkCmpDocSeparator {bg = "yellow"},
+    Title { bg = hsl(268, 60, 8), fg = hsl(280, 75, 50)},
+    WinSeparator {bg = hsl(280, 80, 6), fg = hsl(270, 70, 18)},
+    -- NvimSpacing { bg = "red"},
     -- ColorColumn    { }, -- Columns set with 'colorcolumn'
     -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
     -- Cursor         { }, -- Character under the cursor
@@ -98,15 +132,16 @@ local theme = lush(function(injected_functions)
     -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     CursorLine     { bg = raven.dark.bg.li(4).sa(10) }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     -- Directory      { }, -- Directory names (and other special names in listings)
-    -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
+    --
+    DiffAdd        { bg = "red", fg = "orange" }, -- Diff mode: Added line |diff.txt|
     -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
     -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
-    -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffText       { bg = "red", fg = "orange"}, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
     -- ErrorMsg       { }, -- Error messages on the command line
-    -- VertSplit      { }, -- Column separating vertically split windows
+    -- VertSplit      { bg = raven.dark.fg, fg = hsl(309, 40, 40) }, -- Column separating vertically split windows
     -- Folded         { }, -- Line used for closed folds
     -- FoldColumn     { }, -- 'foldcolumn'
     -- SignColumn     { }, -- Column where |signs| are displayed
@@ -125,13 +160,14 @@ local theme = lush(function(injected_functions)
     -- MoreMsg        { }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     Normal         { bg = raven.dark.bg, fg = raven.dark.fg },
-    -- NormalFloat    { }, -- Normal text in floating windows.
-    -- FloatBorder    { }, -- Border of floating windows.
+    NormalFloat    { bg = hsl(268, 60, 8) }, -- Normal text in floating windows.
+    FloatBorder    { bg = hsl(268, 60, 8), fg = hsl(270, 75, 24) }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
-    -- Pmenu          { }, -- Popup menu: Normal item.
-    -- PmenuSel       { }, -- Popup menu: Selected item.
-    -- PmenuKind      { }, -- Popup menu: Normal item "kind"
+    -- Pmenu          { bg = raven.dark.panel.bg, arg, fg = raven.dark.panel.fg }, -- Popup menu: Normal item.
+    -- PmenuSel       { bg = raven.dark.panel.select.bg, fg = raven.dark.panel.select.fg }, -- Popup menu: Selected item.
+    -- PmenuSel       { bg = raven.dark.panel.select.bg }, -- Popup menu: Selected item.
+    -- PmenuKind      { incsearch}, -- Popup menu: Normal item "kind"
     -- PmenuKindSel   { }, -- Popup menu: Selected item "kind"
     -- PmenuExtra     { }, -- Popup menu: Normal item "extra text"
     -- PmenuExtraSel  { }, -- Popup menu: Selected item "extra text"
@@ -315,8 +351,8 @@ local theme = lush(function(injected_functions)
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
 
-    -- SnacksIndentScope  {},
-    -- SnacksIndent       {},
+    SnacksIndentScope  { bg = hsl(268, 60, 11), fg = hsl(280, 70, 27), bold = false},
+    SnacksIndent       { xbg = hsl(268, 45, 7), fg = hsl(280, 50, 15) },
     -- SnacksIndent1      {},
     -- SnacksIndent2      {},
     -- SnacksIndent3      {},
@@ -345,7 +381,7 @@ local theme = lush(function(injected_functions)
     -- WhichKeyTitle        {},
     -- WhichKeyValue        {},
 
-    lualine_a_normal     { bg = raven.dark.bg, fg = raven.dark.fg},
+    -- lualine_a_normal     { bg = raven.dark.bg, fg = raven.dark.fg},
     -- lualine_a_insert     {},
     -- lualine_a_visual     {},
     -- lualine_a_replace    {},
