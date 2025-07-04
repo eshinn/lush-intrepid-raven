@@ -113,6 +113,9 @@ local theme = lush(function(injected_functions)
     NoiceCmdline {bg = "blue", fg = "pink"},
     NoiceLspProgressTitle {bg = "blue", fg = "pink"},
     BlinkCmpMenuSelection {bg = "blue", fg = "pink"},
+    -- BufferLineBufferSelected {bg = "green", fg = "pink"},
+    BufferLineIndicatorSelected {bg = raven.dark.panel.bg, fg = raven.dark.panel.fg },
+
     -- NoiceCmdlinePopupBorder {bg = hsl(270, 60, 10), fg = hsl(270, 75, 34)},
     NoiceCmdlinePopupBorder {bg = hsl(100, 90, 1), fg = hsl(82, 90, 35)},
     NoiceCmdlineIconCmdline {bg = hsl(100, 90, 5), fg = hsl(100, 80, 38)},
